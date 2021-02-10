@@ -16,7 +16,7 @@ function App() {
     
       </div>
     <p id="pGitHub">
-    <a href="" target="_blank" id="gitHub">Open-source code </a>
+    <a href="https://github.com/MIJSousa/appreact" target="_blank" id="gitHub">Open-source code </a>
      by Marina Sousa</p>
     </div>
 
