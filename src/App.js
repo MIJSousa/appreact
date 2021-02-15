@@ -10,9 +10,9 @@ export default function App() {
         <Search />
         <Forecast />
     </div>
-    <footer id="pGitHub">
-    <a href="https://github.com/MIJSousa/appreact" target="_blank" id="gitHub">Open-source code </a>
-    by Marina Sousa
+    <footer>
+    <a href="https://github.com/MIJSousa/appreact" target="_blank">Open-source code </a>
+    by Marina Sousa.
     </footer>
     </div>
     </div>
