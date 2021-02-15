@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="App">
       <div className="page">
-      <div className="container">
+      <div>
         <Search />
         
         <Forecast />
