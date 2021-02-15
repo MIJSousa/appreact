@@ -1,6 +1,5 @@
 .container {
   padding: 30px;
-  color: #fff;
   max-width: 540px;
   position: relative;
   margin: 0 auto;
@@ -10,4 +9,5 @@
 .intContainer {
   background-color: #427393;
   padding: 30px;
+  color: #fff;
 }
