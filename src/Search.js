@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import "./Search.css";
 import axios from "axios";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 export default function Search() {
