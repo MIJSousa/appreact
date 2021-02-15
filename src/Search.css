@@ -2,6 +2,9 @@ form {
   text-align: right;
   margin-bottom: 20px;
 }
+.search {
+  background-color: #427393;
+}
 .search-city {
   background-color: #f79758;
   border: none;
