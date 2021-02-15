@@ -31,10 +31,10 @@ ul {
   padding: 0;
 }
 
-a.celcius {
+a#celcius {
   color: black;
 }
-a.fahr {
+a#fahr {
   color: black;
 }
 a:hover {
