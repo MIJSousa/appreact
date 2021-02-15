@@ -8,8 +8,10 @@ import Forecast from "./Forecast";
 
 function App() {
   return (
-    <div className="App page">
+    <div className="App">
+    
       <div className="container">
+        <div className="page">
       <div>
         <Search />
         <Forecast />
@@ -20,6 +22,7 @@ function App() {
     <a href="https://github.com/MIJSousa/appreact" target="_blank" id="gitHub">Open-source code </a>
     by Marina Sousa
     </p>
+    </div>
     </div>
   );
 }
