@@ -62,8 +62,7 @@ export default function Search() {
       </form>
       <div class="row today">
       <div class="col center extremes align-self-center">
-        <h1 class="city" id="current-city"> {city}
-        </h1>
+        <h1 class="city" id="current-city"> {city} </h1>
         <h6 id="currentDate"></h6>
       </div>
       <div class="col center principal align-self-center">
@@ -90,9 +89,8 @@ export default function Search() {
       </div>
       <div class="col center extremes align-self-center">
         <ul>
-          
           <li>
-            <i class="fas fa-umbrella "></i>
+            <i class="fas fa-umbrella"></i>
             <span id="humidity">{humidity}</span>%
           </li>
           <li>
