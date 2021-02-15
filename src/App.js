@@ -14,12 +14,12 @@ function App() {
         <Search />
         <Forecast />
       </div>
-      <p id="pGitHub">
+     
+    </div>
+ <p id="pGitHub">
       <a href="https://github.com/MIJSousa/appreact" target="_blank" id="gitHub">Open-source code </a>
       by Marina Sousa
     </p>
-    </div>
-
     </div>
   );
 }
