@@ -2,7 +2,7 @@ import './App.css';
 import Search from "./Search";
 import Forecast from "./Forecast";
 
-function App() {
+export default function App() {
   return (
     <div className="App">
     <div className="container">
@@ -18,5 +18,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
