@@ -11,9 +11,7 @@ function App() {
       <div className="page">
       <div>
         <Search />
-        
         <Forecast />
-    
       </div>
     <p id="pGitHub">
     <a href="https://github.com/MIJSousa/appreact" target="_blank" id="gitHub">Open-source code </a>
