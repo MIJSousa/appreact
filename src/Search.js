@@ -3,6 +3,7 @@ import "./Search.css";
 import axios from "axios";
 
 
+
 export default function Search() {
   let [city, setCity] = useState("");
   let [temperature, setTemperature] = useState("");
@@ -90,12 +91,12 @@ export default function Search() {
       <div class="col center extremes align-self-center">
         <ul>
           <li>
-            <i class="fas fa-umbrella"></i>
-            <span id="humidity">{humidity}</span>%
+            
+            <span id="humidity">Humidity:{humidity}</span>%
           </li>
           <li>
-            <i class="fas fa-wind"></i>
-            <span id="wind">{wind}</span> km/h
+          
+            <span id="wind">Wind:{wind}</span> km/h
           </li>
         </ul>
       </div>
