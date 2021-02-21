@@ -5,7 +5,7 @@ import axios from "axios";
 
 
 export default function Search() {
-  const [ready, setReady]=useState({ready: false});
+  const [ready, setReady]=useState( false );
   const [weather, setWeather]=useState({});
 
     function showWeather(response) {
@@ -18,11 +18,12 @@ export default function Search() {
     icon: response.data.weather[0].icon,
     date: new Date(response.data.dt * 1000),
     city: response.data.name,
-    ready: true
     });
+    setReady( true );
   }
 
-if(weather.ready){
+
+if(ready){
 return (
     <div className="search">
       <button id="current-location">📍 Current Location</button>
@@ -47,7 +48,7 @@ return (
             <img src={`http://openweathermap.org/img/wn/${weather.icon}@2x.png`} alt="icon" id="icon" />{" "}
           </li>
           <li class="temp">
-            <h6 id="description"> {weather.description}</h6>
+            <h6 className="text-capitalize" id="description"> {weather.description}</h6>
             <span class="temp-principal" id="current-temp">
               {Math.round(weather.temperature)}
             </span>{" "}
@@ -81,7 +82,8 @@ return (
   }else{
   let city="London";
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=3cd100e112e7defa0b76141c9b64f0fc&units=metric`;
-    axios.get(url).then(showWeather);
+  
+  axios.get(url).then(showWeather);
 
   return(
   "Loading..."
