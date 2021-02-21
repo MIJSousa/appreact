@@ -83,7 +83,8 @@ return (
   );
   }else{
   let city="Porto";
-  let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=3cd100e112e7defa0b76141c9b64f0fc&units=metric`;
+  let apiKey= "3cd100e112e7defa0b76141c9b64f0fc";
+  let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   
   axios.get(url).then(showWeather);
 
