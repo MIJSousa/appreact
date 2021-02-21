@@ -6,22 +6,20 @@ import axios from "axios";
 
 export default function Search() {
   let [city, setCity] = useState("");
-  let [temperature, setTemperature] = useState("");
-  let [description, setDescription] = useState("");
-  let [humidity, setHumidity] = useState("");
-  let [wind, setWind] = useState("");
-  let [icon, setIcon] = useState("");
-  let [fahrn, setFahrn]=useState(""); 
-  let [celcius, setCelcius]=useState("");
-  let [temp, setTemp]=useState("");
-
-  function showWeather(response) {
+  let [weather, setWeather]=useState({});
+  
+  
+    function showWeather(response) {
     console.log(response);
-    setTemperature(Math.round(response.data.main.temp));
-    setDescription(response.data.weather[0].description);
-    setHumidity(Math.round(response.data.main.humidity));
-    setWind(Math.round(response.data.wind.speed));
-    setIcon(response.data.weather[0].icon);
+    setWeather({
+    temperature: response.data.main.temp,
+    description: response.data.weather[0].description,
+    humidity: response.data.main.humidity,
+    wind: response.data.wind.speed,
+    icon: response.data.weather[0].icon,
+    date: "Wednesday"
+  })
+    
   }
   function chooseCity(event) {
     setCity(event.target.value);
@@ -33,19 +31,6 @@ export default function Search() {
     axios.get(url).then(showWeather);
   }
 
-
-  function showCelcius(event) {
-    event.preventDefault();
-    setCelcius(Math.round(`${temperature}`));
-    setTemp(celcius);
-    }
-
-
-   function showFahr(event) {
-    event.preventDefault();
-    setFahrn(Math.round((`${temperature}`)* 9 / 5 + 32)) 
-    setTemp(fahrn);
-  }
 
   return (
     <div className="search">
@@ -64,24 +49,24 @@ export default function Search() {
       <div class="row today">
       <div class="col center extremes align-self-center">
         <h1 class="city" id="current-city"> {city} </h1>
-        <h6 id="currentDate"></h6>
+        <h6 id="currentDate">{weather.date}</h6>
       </div>
       <div class="col center principal align-self-center">
         <ul>
           <li>
-            <img src={`http://openweathermap.org/img/wn/${icon}@2x.png`} alt="icon" id="icon" />{" "}
+            <img src={`http://openweathermap.org/img/wn/${weather.icon}@2x.png`} alt="icon" id="icon" />{" "}
           </li>
           <li class="temp">
-            <h6 id="description"> {description}</h6>
+            <h6 id="description"> {weather.description}</h6>
             <span class="temp-principal" id="current-temp">
-              {temperature}
+              {Math.round(weather.temperature)}
             </span>{" "}
             <span class="units">
-              <a href="#" id="celcius" onClick={showCelcius}>
+              <a href="#" id="celcius">
                 ºC
               </a>
               |
-              <a href="#" id="fahr" onClick={showFahr}>
+              <a href="#" id="fahr">
                  ºF
               </a>
             </span>
@@ -92,11 +77,11 @@ export default function Search() {
         <ul>
           <li>
             
-            <span id="humidity">Humidity:{humidity}</span>%
+            <span id="humidity">Humidity:{Math.round(weather.humidity)}</span>%
           </li>
           <li>
           
-            <span id="wind">Wind:{wind}</span> km/h
+            <span id="wind">Wind:{Math.round(weather.wind)}</span> km/h
           </li>
         </ul>
       </div>
