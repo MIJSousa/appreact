@@ -11,6 +11,11 @@ form {
   padding: 0px 15px;
   border-radius: 20px;
 }
+
+i.center {
+  font-size: 30px;
+}
+
 .city {
   margin-top: 21px;
   margin-bottom: 10px;
@@ -34,20 +39,6 @@ ul {
   list-style: none;
   margin: 0;
   padding: 0;
-}
-
-a#celcius {
-  color: black;
-}
-a#fahr {
-  color: black;
-}
-a:hover {
-  text-decoration: none;
-}
-
-i.center {
-  font-size: 30px;
 }
 
 div.today {

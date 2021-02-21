@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import "./Search.css";
 import axios from "axios";
 import FormatDate from "./FormatDate";
+import TemperatureUnits from "./TemperatureUnits";
 
 
 
@@ -68,18 +69,7 @@ return (
           </li>
           <li class="temp">
             <h6 className="text-capitalize" id="description"> {weather.description}</h6>
-            <span class="temp-principal" id="current-temp">
-              {Math.round(weather.temperature)}
-            </span>{" "}
-            <span class="units">
-              <a href="#" id="celcius">
-                ºC
-              </a>
-              |
-              <a href="#" id="fahr">
-                 ºF
-              </a>
-            </span>
+            <TemperatureUnits celcius={weather.temperature}/>
           </li>
         </ul>
       </div>
