@@ -5,8 +5,9 @@ import FormatDate from "./FormatDate";
 
 
 
-export default function Search() {
+export default function Search(props) {
   const [weather, setWeather]=useState({ready : false});
+  let [city, setCity]=useState(props.defaultCity);
 
     function showWeather(response) {
     console.log(response);
@@ -22,18 +23,34 @@ export default function Search() {
     });
   }
 
+  function Search(){
+  let apiKey= "3cd100e112e7defa0b76141c9b64f0fc";
+  let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  
+  axios.get(url).then(showWeather);
+  }
+
+  function handleSubmit(event){
+    event.preventDefault();
+    Search();
+  }
+
+  function changeCity(event){
+  setCity(event.target.value);
+  }
 
 if(weather.ready){
 return (
     <div className="search">
       <button id="current-location">📍 Current Location</button>
-      <form>
+      <form onSubmit={handleSubmit}>
         <input
           type="text"
           placeholder=" 🔎 Search for a city"
           autocomplete="on"
           class="enter-city"
           id="city-selector"
+          onChange={changeCity}
         />
         <input type="submit" value="Search" class="search-city" />
       </form>
@@ -82,11 +99,7 @@ return (
     </div>
   );
   }else{
-  let city="Porto";
-  let apiKey= "3cd100e112e7defa0b76141c9b64f0fc";
-  let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-  
-  axios.get(url).then(showWeather);
+  Search();
 
   return(
   "Loading..."

@@ -7,7 +7,7 @@ export default function App() {
     <div className="App">
     <div className="container">  
     <div className="intContainer">  
-        <Search />
+        <Search defaultCity="Porto"/>
         <Forecast />
     </div>
     <footer>
