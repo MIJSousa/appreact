@@ -5,10 +5,9 @@ import axios from "axios";
 
 
 export default function Search() {
-  let [city, setCity] = useState("");
-  let [weather, setWeather]=useState({});
-  
-  
+  const [ready, setReady]=useState({ready: false});
+  const [weather, setWeather]=useState({});
+
     function showWeather(response) {
     console.log(response);
     setWeather({
@@ -17,39 +16,30 @@ export default function Search() {
     humidity: response.data.main.humidity,
     wind: response.data.wind.speed,
     icon: response.data.weather[0].icon,
-    date: "Wednesday"
-  })
-    
-  }
-  function chooseCity(event) {
-    setCity(event.target.value);
+    date: new Date(response.data.dt * 1000),
+    city: response.data.name,
+    ready: true
+    });
   }
 
-  function findWeather(event) {
-    event.preventDefault();
-    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=3cd100e112e7defa0b76141c9b64f0fc&units=metric`;
-    axios.get(url).then(showWeather);
-  }
-
-
-  return (
+if(weather.ready){
+return (
     <div className="search">
       <button id="current-location">📍 Current Location</button>
-      <form onSubmit={findWeather}>
+      <form>
         <input
           type="text"
           placeholder=" 🔎 Search for a city"
           autocomplete="on"
           class="enter-city"
           id="city-selector"
-          onChange={chooseCity}
         />
         <input type="submit" value="Search" class="search-city" />
       </form>
       <div class="row today">
       <div class="col center extremes align-self-center">
-        <h1 class="city" id="current-city"> {city} </h1>
-        <h6 id="currentDate">{weather.date}</h6>
+        <h1 class="city" id="current-city"> {weather.city} </h1>
+        <h6 id="currentDate"></h6>
       </div>
       <div class="col center principal align-self-center">
         <ul>
@@ -88,4 +78,14 @@ export default function Search() {
     </div>
     </div>
   );
+  }else{
+  let city="London";
+  let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=3cd100e112e7defa0b76141c9b64f0fc&units=metric`;
+    axios.get(url).then(showWeather);
+
+  return(
+  "Loading..."
+  );
+  }
+  
 }
