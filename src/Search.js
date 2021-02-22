@@ -3,6 +3,7 @@ import "./Search.css";
 import axios from "axios";
 import FormatDate from "./FormatDate";
 import TemperatureUnits from "./TemperatureUnits";
+import Forecast from "./Forecast";
 
 
 
@@ -86,6 +87,7 @@ return (
         </ul>
       </div>
     </div>
+    <Forecast city={weather.city}/>
     </div>
   );
   }else{
