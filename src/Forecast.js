@@ -12,7 +12,7 @@ function showForecast(response){
   setLoaded(true);
 
   }
-if( loaded ){
+if( loaded && props.city === forecast.city.name ){
   console.log(forecast);
   return(
     <div className="forecast row">
