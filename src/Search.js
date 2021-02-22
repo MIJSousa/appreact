@@ -44,7 +44,7 @@ export default function Search(props) {
 if(weather.ready){
 return (
     <div className="search">
-      <button id="current-location">📍 Current Location</button>
+     
       <form onSubmit={handleSubmit}>
         <input
           type="text"
