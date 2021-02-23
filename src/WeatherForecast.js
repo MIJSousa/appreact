@@ -5,7 +5,7 @@ export default function WeatherForecast(props){
     return(
     <div className="col">
       <div>
-        {new Date(props.data.dt *1000).getHours()}:00
+        {new Date(props.data.dt*1000).getHours()}:00
       </div>
       <div className="icon">
       <img className="forecastImg" src={`http://openweathermap.org/img/wn/${props.data.weather[0].icon}@2x.png`} />
